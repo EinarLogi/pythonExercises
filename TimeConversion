@@ -1,0 +1,25 @@
+#!/bin/python3
+
+import sys
+
+# https://www.hackerrank.com/challenges/time-conversion?h_r=next-challenge&h_v=zen
+
+time = input().strip()
+
+# time[-2:] either AM or PM
+
+newTime = ""
+
+if int(time[:2]) == 12:
+    if(time[-2:]) == "AM":
+        newTime += "00"
+    else:
+        newTime += "12"
+else:
+    if(time[-2:]) == "AM":
+        newTime += time[:2]
+    else:
+        newTime +=str(int(time[:2]) + 12) # 01 -> 13 -> "13"
+
+newTime += time[2:-2] # concatenate the rest
+print(newTime)
